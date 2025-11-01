@@ -7,13 +7,13 @@
 │                         USER INTERFACES                             │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  WEB INTERFACE (Primary)          CLI INTERFACE (Secondary)        │
-│  • Browser-based UI                • Terminal-based                │
-│  • http://localhost:5001           • Interactive commands          │
-│  • Modern dark theme               • Colored output                │
-│  • Real-time messaging             • Session tracking              │
-│  • Audio playback                  • Conversation history          │
-│  • Statistics dashboard                                            │
+│  WEB INTERFACE (Primary)          CLI INTERFACE (Secondary)         │
+│  • Browser-based UI                • Terminal-based                 │
+│  • http://localhost:5001           • Interactive commands           │
+│  • Modern dark theme               • Colored output                 │
+│  • Real-time messaging             • Session tracking               │
+│  • Audio playback                  • Conversation history           │
+│  • Statistics dashboard                                             │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
                                    │
@@ -22,18 +22,18 @@
 │                      APPLICATION LAYER                              │
 ├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  FLASK WEB SERVER (web_app.py)    CHATBOT CONTROLLER (chatbot.py) │
-│  • REST API endpoints              • Orchestrates components       │
-│  • Static file serving             • Conversation flow             │
-│  • Session management              • Query pipeline                │
-│  • Audio file handling             • Statistics tracking           │
+│  FLASK WEB SERVER (web_app.py)    CHATBOT CONTROLLER (chatbot.py)   │
+│  • REST API endpoints              • Orchestrates components        │
+│  • Static file serving             • Conversation flow              │
+│  • Session management              • Query pipeline                 │
+│  • Audio file handling             • Statistics tracking            │
 │                                                                     │
-│  Routes:                           Features:                       │
-│  • POST /api/chat                  • Multi-component integration   │
-│  • GET  /api/stats                 • Error handling                │
-│  • POST /api/clear                 • Session persistence           │
-│  • GET  /api/history                                               │
-│  • GET  /audio/<file>                                              │
+│  Routes:                           Features:                        │
+│  • POST /api/chat                  • Multi-component integration    │
+│  • GET  /api/stats                 • Error handling                 │
+│  • POST /api/clear                 • Session persistence            │
+│  • GET  /api/history                                                │
+│  • GET  /audio/<file>                                               │
 │                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
            │                      │                      │
@@ -280,8 +280,8 @@
 │           Conversation History                      │
 │  (ResponseGenerator.conversation_history)           │
 │                                                     │
-│  Max Turns: 10 (configurable)                      │
-│  Format: List[Dict[role, content]]                 │
+│  Max Turns: 10 (configurable)                       │
+│  Format: List[Dict[role, content]]                  │
 └─────────────────────────────────────────────────────┘
          │
          ├─→ Turn 1: [user_msg, assistant_msg]
@@ -330,35 +330,35 @@
 ┌─────────────────────────────────────────────────────┐
 │              Development Environment                │
 │                                                     │
-│  ┌──────────────┐  ┌──────────────┐               │
-│  │ Python 3.8+  │  │ Dependencies │               │
-│  └──────────────┘  └──────────────┘               │
+│  ┌──────────────┐  ┌──────────────┐                 │
+│  │ Python 3.8+  │  │ Dependencies │                 │
+│  └──────────────┘  └──────────────┘                 │
 │                                                     │
-│  ┌──────────────────────────────────────────────┐  │
-│  │  Virtual Environment (venv/conda)            │  │
-│  │  • OpenAI SDK                                │  │
-│  │  • ChromaDB                                  │  │
-│  │  • Transformers                              │  │
-│  │  • PyTorch                                   │  │
-│  │  • Other dependencies                        │  │
-│  └──────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  Virtual Environment (venv/conda)            │   │
+│  │  • OpenAI SDK                                │   │
+│  │  • ChromaDB                                  │   │
+│  │  • Transformers                              │   │
+│  │  • PyTorch                                   │   │
+│  │  • Other dependencies                        │   │
+│  └──────────────────────────────────────────────┘   │
 │                                                     │
-│  ┌──────────────────────────────────────────────┐  │
-│  │  Application Files                           │  │
-│  │  • chatbot.py                                │  │
-│  │  • knowledge_base.py                         │  │
-│  │  • response_generator.py                     │  │
-│  │  • tts_service.py                            │  │
-│  │  • config.py                                 │  │
-│  └──────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  Application Files                           │   │
+│  │  • chatbot.py                                │   │
+│  │  • knowledge_base.py                         │   │
+│  │  • response_generator.py                     │   │
+│  │  • tts_service.py                            │   │
+│  │  • config.py                                 │   │
+│  └──────────────────────────────────────────────┘   │
 │                                                     │
-│  ┌──────────────────────────────────────────────┐  │
-│  │  Data & Storage                              │  │
-│  │  • chroma_db/ (vector database)              │  │
-│  │  • data/faqs.json (knowledge base)           │  │
-│  │  • audio_responses/ (TTS output)             │  │
-│  │  • conversation_logs/ (chat history)         │  │
-│  └──────────────────────────────────────────────┘  │
+│  ┌──────────────────────────────────────────────┐   │
+│  │  Data & Storage                              │   │
+│  │  • chroma_db/ (vector database)              │   │
+│  │  • data/faqs.json (knowledge base)           │   │
+│  │  • audio_responses/ (TTS output)             │   │
+│  │  • conversation_logs/ (chat history)         │   │
+│  └──────────────────────────────────────────────┘   │
 │                                                     │
 └─────────────────────────────────────────────────────┘
                          │
@@ -366,12 +366,12 @@
 ┌─────────────────────────────────────────────────────┐
 │              External Services (Cloud)              │
 │                                                     │
-│  ┌──────────────┐  ┌──────────────┐               │
-│  │  OpenAI API  │  │ HuggingFace  │               │
-│  │              │  │   Models     │               │
-│  │ • GPT Models │  │ • VITS TTS   │               │
-│  │ • Embeddings │  │ • Tokenizers │               │
-│  └──────────────┘  └──────────────┘               │
+│  ┌──────────────┐  ┌──────────────┐                 │
+│  │  OpenAI API  │  │ HuggingFace  │                 │
+│  │              │  │   Models     │                 │
+│  │ • GPT Models │  │ • VITS TTS   │                 │
+│  │ • Embeddings │  │ • Tokenizers │                 │
+│  └──────────────┘  └──────────────┘                 │
 └─────────────────────────────────────────────────────┘
 ```
 
