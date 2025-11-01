@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - Intelligent Assistant</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🤖 AI Chatbot Assistant</h1>
+                <p class="subtitle">Powered by OpenAI & ChromaDB</p>
+            </div>
+            <div class="header-actions">
+                <button class="btn btn-secondary" onclick="toggleStats()">
+                    📊 Stats
+                </button>
+                <button class="btn btn-secondary" onclick="clearChat()">
+                    🗑️ Clear
+                </button>
+                <label class="toggle-switch">
+                    <input type="checkbox" id="audioToggle" checked>
+                    <span class="slider"></span>
+                    <span class="toggle-label">🔊 Audio</span>
+                </label>
+            </div>
+        </header>
+
+        <!-- Stats Panel -->
+        <div id="statsPanel" class="stats-panel hidden">
+            <h3>📊 Session Statistics</h3>
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <span class="stat-label">Total Queries</span>
+                    <span class="stat-value" id="statQueries">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Session Duration</span>
+                    <span class="stat-value" id="statDuration">0m 0s</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">Conversation Turns</span>
+                    <span class="stat-value" id="statTurns">0</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-label">KB Documents</span>
+                    <span class="stat-value" id="statDocs">0</span>
+                </div>
+            </div>
+            <button class="btn btn-primary" onclick="toggleStats()">Close</button>
+        </div>
+
+        <!-- Chat Container -->
+        <div class="chat-container">
+            <div class="chat-messages" id="chatMessages">
+                <div class="message bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <div class="message-text">
+                            Hello! I'm your intelligent assistant. I can help you with:
+                            <ul>
+                                <li>Business hours and general information</li>
+                                <li>Account management and password resets</li>
+                                <li>Billing, payments, and refunds</li>
+                                <li>Security and data privacy</li>
+                                <li>Technical support and integrations</li>
+                            </ul>
+                            How can I assist you today?
+                        </div>
+                        <div class="message-time">Just now</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Input Area -->
+            <div class="chat-input-container">
+                <div class="input-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Type your question here..."
+                        rows="1"
+                        onkeydown="handleKeyPress(event)"
+                    ></textarea>
+                    <button class="send-button" onclick="sendMessage()">
+                        <span class="send-icon">➤</span>
+                    </button>
+                </div>
+                <div class="input-hint">
+                    Press Enter to send, Shift+Enter for new line
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div id="loadingOverlay" class="loading-overlay hidden">
+        <div class="loading-spinner"></div>
+        <p>Thinking...</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

@@ -1,0 +1,92 @@
+[
+  {
+    "id": "faq_001",
+    "question": "What are your business hours?",
+    "answer": "Our business hours are Monday through Friday, 9:00 AM to 6:00 PM EST. We are closed on weekends and major holidays.",
+    "category": "general"
+  },
+  {
+    "id": "faq_002",
+    "question": "How do I reset my password?",
+    "answer": "To reset your password, click on 'Forgot Password' on the login page. Enter your email address, and we'll send you a password reset link. The link will be valid for 24 hours.",
+    "category": "account"
+  },
+  {
+    "id": "faq_003",
+    "question": "What payment methods do you accept?",
+    "answer": "We accept all major credit cards (Visa, MasterCard, American Express, Discover), PayPal, and bank transfers for enterprise customers. All transactions are secured with 256-bit SSL encryption.",
+    "category": "billing"
+  },
+  {
+    "id": "faq_004",
+    "question": "What is your refund policy?",
+    "answer": "We offer a 30-day money-back guarantee for all our products. If you're not satisfied, contact our support team within 30 days of purchase for a full refund. Digital products must not have been downloaded more than once.",
+    "category": "billing"
+  },
+  {
+    "id": "faq_005",
+    "question": "How do I contact customer support?",
+    "answer": "You can contact our customer support team via email at support@example.com, through our live chat available on our website, or by calling 1-800-SUPPORT during business hours. Average response time is under 2 hours.",
+    "category": "support"
+  },
+  {
+    "id": "faq_006",
+    "question": "Do you offer free trials?",
+    "answer": "Yes! We offer a 14-day free trial for all our premium plans. No credit card required to start. You can upgrade, downgrade, or cancel anytime during or after the trial period.",
+    "category": "plans"
+  },
+  {
+    "id": "faq_007",
+    "question": "How secure is my data?",
+    "answer": "We take data security very seriously. All data is encrypted in transit and at rest using industry-standard AES-256 encryption. We perform regular security audits, have SOC 2 Type II certification, and are GDPR compliant.",
+    "category": "security"
+  },
+  {
+    "id": "faq_008",
+    "question": "Can I upgrade or downgrade my plan?",
+    "answer": "Absolutely! You can change your plan at any time from your account settings. Upgrades take effect immediately, while downgrades take effect at the start of your next billing cycle. You'll receive a prorated credit for downgrades.",
+    "category": "plans"
+  },
+  {
+    "id": "faq_009",
+    "question": "What is the cancellation policy?",
+    "answer": "You can cancel your subscription at any time. Your service will remain active until the end of your current billing period. No refunds are provided for partial months, but you won't be charged for subsequent periods.",
+    "category": "plans"
+  },
+  {
+    "id": "faq_010",
+    "question": "Do you provide API access?",
+    "answer": "Yes, API access is available on our Professional and Enterprise plans. You'll get comprehensive API documentation, webhooks, and dedicated API keys. Rate limits depend on your plan tier.",
+    "category": "technical"
+  },
+  {
+    "id": "faq_011",
+    "question": "What are the system requirements?",
+    "answer": "Our service is cloud-based and works on any device with a modern web browser (Chrome, Firefox, Safari, Edge). For mobile apps, we support iOS 13+ and Android 8+. A stable internet connection is required.",
+    "category": "technical"
+  },
+  {
+    "id": "faq_012",
+    "question": "How do I export my data?",
+    "answer": "You can export all your data at any time from the Settings page. We provide exports in CSV, JSON, and XML formats. Enterprise customers can also schedule automatic daily exports to their preferred cloud storage.",
+    "category": "data"
+  },
+  {
+    "id": "faq_013",
+    "question": "Is there a mobile app?",
+    "answer": "Yes! We have native mobile apps for both iOS and Android. You can download them from the App Store or Google Play Store. All features available on the web are also available on mobile.",
+    "category": "general"
+  },
+  {
+    "id": "faq_014",
+    "question": "Do you offer training or onboarding?",
+    "answer": "Yes! We provide comprehensive onboarding for all new customers. This includes video tutorials, documentation, and live training sessions. Enterprise customers get dedicated onboarding specialists and custom training programs.",
+    "category": "support"
+  },
+  {
+    "id": "faq_015",
+    "question": "What integrations do you support?",
+    "answer": "We integrate with over 50 popular tools including Slack, Microsoft Teams, Google Workspace, Salesforce, Zapier, and more. Check our integrations page for the full list. Custom integrations are available for Enterprise customers.",
+    "category": "technical"
+  }
+]
