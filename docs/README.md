@@ -1,31 +1,42 @@
-# Chatbot System with ChromaDB, OpenAI, and HuggingFace TTS
+# AI Chatbot System with Web Interface
 
-A complete chatbot system that combines vector database storage, natural language generation, and text-to-speech capabilities.
+A complete AI chatbot system with modern web interface that combines vector database storage, natural language generation, and text-to-speech capabilities.
 
 ## Features
 
+- 🌐 **Modern Web Interface**: Beautiful browser-based UI with dark theme
 - 🗄️ **ChromaDB Vector Database**: Store and retrieve knowledge using embeddings
 - 🤖 **OpenAI SDK**: Generate intelligent natural language responses
 - 🔊 **HuggingFace TTS**: Convert text responses to speech using VITS model
 - 💬 **Multi-turn Conversations**: Maintain conversation context and history
-- 🖥️ **CLI Interface**: Easy-to-use command-line interface
+- � **Statistics Dashboard**: Track queries, responses, and performance
+- 📱 **Mobile Responsive**: Works on all devices
 
 ## Project Structure
 
 ```
-Workshop_03/
-├── chatbot.py              # Main chatbot implementation
-├── knowledge_base.py       # ChromaDB setup and knowledge management
-├── tts_service.py          # Text-to-Speech service
-├── config.py               # Configuration settings
+AI_Chatbot_System/
+├── web_app.py              # Flask web application (PRIMARY)
+├── run_chatbot.py          # CLI entry point
+├── templates/
+│   └── index.html          # Web UI template
+├── static/
+│   ├── style.css           # Modern dark theme styling
+│   └── script.js           # Frontend interactivity
+├── src/
+│   ├── chatbot.py          # Core chatbot logic
+│   ├── knowledge_base.py   # ChromaDB integration
+│   ├── response_generator.py # OpenAI integration
+│   ├── tts_service.py      # Text-to-speech service
+│   └── config.py           # Configuration settings
+├── data/
+│   └── faqs.json           # Mock FAQ data
 ├── requirements.txt        # Python dependencies
 ├── .env                    # Environment variables (create from .env.example)
-├── .env.example           # Example environment configuration
-├── data/                  # Mock data for knowledge base
-│   └── faqs.json
-├── chroma_db/            # ChromaDB storage (auto-created)
-├── audio_responses/      # Generated audio files (auto-created)
-└── conversation_logs/    # Conversation history (auto-created)
+├── .env.example            # Example environment configuration
+├── chroma_db/              # ChromaDB storage (auto-created)
+├── audio_responses/        # Generated audio files (auto-created)
+└── conversation_logs/      # Conversation history (auto-created)
 ```
 
 ## Setup Instructions
@@ -45,8 +56,15 @@ cp .env.example .env
 
 ### 3. Run the Chatbot
 
+**Web Interface (Recommended)**:
 ```bash
-python chatbot.py
+python web_app.py
+# Open browser to: http://localhost:5001
+```
+
+**Command Line Interface**:
+```bash
+python run_chatbot.py
 ```
 
 ## Usage

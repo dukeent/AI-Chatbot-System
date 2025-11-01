@@ -1,25 +1,40 @@
-# CHATBOT SYSTEM - ARCHITECTURE DIAGRAM
+# AI CHATBOT SYSTEM - ARCHITECTURE DIAGRAM
 
 ## 🏗️ System Architecture
 
 ```
 ┌─────────────────────────────────────────────────────────────────────┐
-│                         USER INTERFACE                              │
-│                     (Interactive CLI - chatbot.py)                  │
+│                         USER INTERFACES                             │
+├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  Commands: quit, history, clear, stats, save, help                 │
-│  Features: Colored output, Real-time feedback, Session tracking    │
+│  WEB INTERFACE (Primary)          CLI INTERFACE (Secondary)        │
+│  • Browser-based UI                • Terminal-based                │
+│  • http://localhost:5001           • Interactive commands          │
+│  • Modern dark theme               • Colored output                │
+│  • Real-time messaging             • Session tracking              │
+│  • Audio playback                  • Conversation history          │
+│  • Statistics dashboard                                            │
+│                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
                                    │
                                    ▼
 ┌─────────────────────────────────────────────────────────────────────┐
-│                      CHATBOT CONTROLLER                             │
-│                         (chatbot.py)                                │
+│                      APPLICATION LAYER                              │
+├─────────────────────────────────────────────────────────────────────┤
 │                                                                     │
-│  • Orchestrates all components                                     │
-│  • Manages conversation flow                                       │
-│  • Handles query processing pipeline                               │
-│  • Tracks session statistics                                       │
+│  FLASK WEB SERVER (web_app.py)    CHATBOT CONTROLLER (chatbot.py) │
+│  • REST API endpoints              • Orchestrates components       │
+│  • Static file serving             • Conversation flow             │
+│  • Session management              • Query pipeline                │
+│  • Audio file handling             • Statistics tracking           │
+│                                                                     │
+│  Routes:                           Features:                       │
+│  • POST /api/chat                  • Multi-component integration   │
+│  • GET  /api/stats                 • Error handling                │
+│  • POST /api/clear                 • Session persistence           │
+│  • GET  /api/history                                               │
+│  • GET  /audio/<file>                                              │
+│                                                                     │
 └─────────────────────────────────────────────────────────────────────┘
            │                      │                      │
            │                      │                      │
@@ -37,6 +52,42 @@
 │ Embeddings  │    │ Chat API    │    │   Audio Gen         │
 │ Similarity  │    │ Context     │    │   WAV Files         │
 └─────────────┘    └─────────────┘    └─────────────────────┘
+```
+
+## 🌐 Web Application Flow
+
+```
+┌──────────────┐
+│   Browser    │
+│  localhost:  │
+│     5001     │
+└──────┬───────┘
+       │
+       │ HTTP Request (POST /api/chat)
+       ▼
+┌─────────────────────────────────────┐
+│      Flask Web Server               │
+│      (web_app.py)                   │
+│                                     │
+│  1. Receive JSON request            │
+│  2. Extract message & settings      │
+│  3. Call chatbot.process_query()    │
+│  4. Get response + audio path       │
+│  5. Format JSON response            │
+│  6. Return to browser               │
+└─────────────────────────────────────┘
+       │
+       │ Response with audio_url
+       ▼
+┌──────────────┐
+│   Browser    │
+│  • Displays  │
+│    message   │
+│  • Plays     │
+│    audio     │
+│  • Updates   │
+│    stats     │
+└──────────────┘
 ```
 
 ## 🔄 Query Processing Pipeline

@@ -1,8 +1,9 @@
 # 🎯 START HERE - Your First Steps
 
-## Welcome to the Chatbot System! 👋
+## Welcome to the AI Chatbot System! 👋
 
-This is a complete, production-ready chatbot that uses:
+This is a complete, production-ready chatbot with **modern web interface** that uses:
+- **Flask Web Framework** for beautiful browser-based UI
 - **ChromaDB** for intelligent knowledge storage
 - **OpenAI** for smart conversations
 - **HuggingFace** for voice responses
@@ -17,7 +18,7 @@ Want to see the system in action **right now** without any setup?
 
 ```bash
 # Just run this - no API key needed!
-python demo.py
+python utils/demo.py
 ```
 
 This runs an **offline demonstration** that shows you exactly how the chatbot works without requiring any API keys or setup. Perfect for learning!
@@ -28,16 +29,10 @@ This runs an **offline demonstration** that shows you exactly how the chatbot wo
 
 Ready to use the real chatbot with AI? Follow these steps:
 
-### Step 1: Run the Setup Wizard (2 minutes)
+### Step 1: Install Dependencies (3 minutes)
 ```bash
-python setup.py
+pip install -r requirements.txt
 ```
-
-This will:
-- ✅ Check your Python version
-- ✅ Install all required packages
-- ✅ Create configuration files
-- ✅ Guide you through setup
 
 ### Step 2: Get Your OpenAI API Key (3 minutes)
 
@@ -48,19 +43,38 @@ This will:
 
 ### Step 3: Add Your API Key (1 minute)
 
-1. Open the `.env` file in this folder
-2. Find the line: `OPENAI_API_KEY=your_openai_api_key_here`
-3. Replace `your_openai_api_key_here` with your actual key
-4. Save the file
+1. Copy `.env.example` to `.env`
+2. Open the `.env` file
+3. Find the line: `OPENAI_API_KEY=your_openai_api_key_here`
+4. Replace `your_openai_api_key_here` with your actual key
+5. Save the file
 
-### Step 4: Run the Chatbot! (4 minutes)
+### Step 4: Run the Chatbot! (3 minutes)
+
+**Option A: Web Interface (Recommended)**
 ```bash
-python chatbot.py
+python web_app.py
+```
+Then open your browser to: **http://localhost:5001**
+
+**Option B: Command Line**
+```bash
+python run_chatbot.py
 ```
 
 That's it! You now have a fully functional AI chatbot with voice capabilities! 🎉
 
 ---
+
+## 🌐 Web Interface Features
+
+The web interface provides:
+- 💬 **Real-time chat** - Beautiful dark-themed interface
+- 🔊 **Audio toggle** - Enable/disable text-to-speech
+- 📊 **Statistics dashboard** - Track queries and performance
+- 🗑️ **Clear conversation** - Reset anytime
+- 📱 **Mobile responsive** - Works on all devices
+- 🎨 **Modern UI** - Professional dark theme
 
 ## 💡 What Can I Do?
 

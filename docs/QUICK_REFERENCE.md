@@ -1,35 +1,67 @@
-# CHATBOT SYSTEM - QUICK REFERENCE CARD
+# AI CHATBOT SYSTEM - QUICK REFERENCE CARD
 
 ## ⚡ Quick Commands
 
 ### First Time Setup
 ```bash
-python setup.py              # Run automated setup
+pip install -r requirements.txt  # Install dependencies
+cp .env.example .env             # Create environment file
 # Edit .env - add OPENAI_API_KEY
-python demo.py               # Try offline demo
-python chatbot.py            # Run full chatbot
+python utils/demo.py             # Try offline demo
 ```
 
 ### Running the Chatbot
+
+**Web Interface (Recommended)**:
 ```bash
-python chatbot.py            # Standard mode (with TTS)
-python chatbot.py --no-tts   # Text-only (faster)
-python chatbot.py --no-kb    # Skip KB initialization
+python web_app.py                # Start web server
+# Open browser to: http://localhost:5001
+```
+
+**Command Line Interface**:
+```bash
+python run_chatbot.py            # Standard mode (with TTS)
+python run_chatbot.py --no-tts   # Text-only (faster)
+python run_chatbot.py --no-kb    # Skip KB initialization
 ```
 
 ### Testing & Demos
 ```bash
-python demo.py               # Offline demo (no API key needed)
-python examples.py           # 7 usage examples
-python test_chatbot.py       # Run unit tests
-python knowledge_base.py     # Test ChromaDB
-python response_generator.py # Test OpenAI
-python tts_service.py        # Test TTS
+python utils/demo.py             # Offline demo (no API key needed)
+python utils/examples.py         # Usage examples
+python -m pytest tests/          # Run unit tests
 ```
 
 ---
 
-## 💬 Interactive Commands (in chatbot)
+## 🌐 Web Interface
+
+### Server Commands
+```bash
+python web_app.py                # Start on http://localhost:5001
+```
+
+### API Endpoints
+
+| Endpoint | Method | Description |
+|----------|--------|-------------|
+| `/api/chat` | POST | Send message, get AI response |
+| `/api/stats` | GET | Get session statistics |
+| `/api/clear` | POST | Clear conversation history |
+| `/api/history` | GET | Get conversation history |
+| `/audio/<file>` | GET | Retrieve audio file |
+
+### Web UI Features
+- 💬 Real-time chat interface
+- 🔊 Audio toggle (enable/disable TTS)
+- 📊 Statistics dashboard
+- 🗑️ Clear conversation button
+- 📱 Mobile responsive design
+- 🎨 Modern dark theme
+
+---
+
+## 💬 CLI Interactive Commands
 
 | Command | Action |
 |---------|--------|
@@ -46,11 +78,15 @@ python tts_service.py        # Test TTS
 
 | File | Purpose | When to Edit |
 |------|---------|--------------|
-| `chatbot.py` | Main app | Customize UI, commands |
-| `knowledge_base.py` | ChromaDB | Modify search logic |
-| `response_generator.py` | OpenAI | Change prompts, behavior |
-| `tts_service.py` | TTS | Adjust audio settings |
-| `config.py` | Settings | Change defaults |
+| `web_app.py` | Web server | Customize API, routes |
+| `templates/index.html` | Web UI | Modify interface |
+| `static/style.css` | Styling | Change appearance |
+| `static/script.js` | Frontend logic | Add web features |
+| `src/chatbot.py` | Core logic | Customize behavior |
+| `src/knowledge_base.py` | ChromaDB | Modify search logic |
+| `src/response_generator.py` | OpenAI | Change prompts |
+| `src/tts_service.py` | TTS | Adjust audio settings |
+| `src/config.py` | Settings | Change defaults |
 | `.env` | API keys | Add your keys |
 | `data/faqs.json` | Knowledge | Add/edit FAQs |
 
@@ -65,6 +101,7 @@ OPENAI_MODEL=gpt-3.5-turbo        # or gpt-4
 OPENAI_EMBEDDING_MODEL=text-embedding-ada-002
 CHROMA_DB_PATH=./chroma_db
 AUDIO_OUTPUT_PATH=./audio_responses
+FLASK_PORT=5001                    # Web server port
 ```
 
 ### config.py Settings
@@ -72,6 +109,7 @@ AUDIO_OUTPUT_PATH=./audio_responses
 MAX_HISTORY_TURNS = 10    # Conversation turns to keep
 TOP_K_RESULTS = 3         # Documents to retrieve
 TTS_MODEL_NAME = "facebook/mms-tts-eng"  # TTS model
+PROJECT_ROOT              # Auto-detected project root
 ```
 
 ---

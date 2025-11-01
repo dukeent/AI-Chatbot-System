@@ -1,4 +1,4 @@
-# Chatbot System - Complete Guide
+# AI Chatbot System - Complete Guide
 
 ## 🚀 Quick Start Guide
 
@@ -7,59 +7,166 @@
 - OpenAI API key
 - Internet connection (for first-time model downloads)
 - ~2GB disk space for TTS models
+- Modern web browser (Chrome, Firefox, Safari, Edge)
 
 ### Installation
 
 1. **Clone or navigate to the project**
    ```bash
-   cd Workshop_03
+   cd AI_Chatbot_System
    ```
 
-2. **Run the setup script**
+2. **Install dependencies**
    ```bash
-   python setup.py
+   pip install -r requirements.txt
    ```
-   This will:
-   - Check Python version
-   - Create `.env` file from template
-   - Install all dependencies
-   - Optionally run component tests
 
 3. **Configure your API key**
    ```bash
+   # Copy the example file
+   cp .env.example .env
+   
    # Edit .env file and add your OpenAI API key
    OPENAI_API_KEY=sk-your-actual-api-key-here
    ```
 
 4. **Run the chatbot**
+   
+   **Web Interface (Recommended)**:
    ```bash
-   python chatbot.py
+   python web_app.py
+   ```
+   Then open your browser to: **http://localhost:5001**
+
+   **Command Line Interface**:
+   ```bash
+   python run_chatbot.py
    ```
 
 ## 📁 Project Structure
 
 ```
-Workshop_03/
-├── chatbot.py              # Main chatbot application (CLI interface)
-├── knowledge_base.py       # ChromaDB integration for vector storage
-├── response_generator.py   # OpenAI SDK for response generation
-├── tts_service.py          # HuggingFace TTS for audio generation
-├── config.py               # Configuration management
-├── setup.py                # Setup and installation script
-├── examples.py             # Usage examples and demonstrations
-├── test_chatbot.py         # Unit tests
-├── requirements.txt        # Python dependencies
-├── .env                    # Environment variables (you create this)
-├── .env.example           # Template for environment variables
-├── .gitignore             # Git ignore rules
-├── README.md              # Project overview
-├── GUIDE.md               # This comprehensive guide
+AI_Chatbot_System/
+├── web_app.py              # Flask web application (PRIMARY INTERFACE)
+├── run_chatbot.py          # CLI entry point
+├── src/
+│   ├── chatbot.py          # Core chatbot logic
+│   ├── knowledge_base.py   # ChromaDB integration
+│   ├── response_generator.py # OpenAI SDK integration
+│   ├── tts_service.py      # HuggingFace TTS
+│   └── config.py           # Configuration management
+├── templates/
+│   └── index.html          # Web UI template
+├── static/
+│   ├── style.css           # Modern dark theme styling
+│   └── script.js           # Frontend interactivity
 ├── data/
-│   └── faqs.json          # Sample FAQ knowledge base
-├── chroma_db/             # ChromaDB storage (auto-created)
-├── audio_responses/       # Generated audio files (auto-created)
-└── conversation_logs/     # Conversation history (auto-created)
+│   └── faqs.json           # Sample FAQ knowledge base
+├── tests/
+│   └── test_chatbot.py     # Unit tests
+├── utils/
+│   ├── setup.py            # Setup utilities
+│   ├── demo.py             # Offline demo
+│   └── examples.py         # Usage examples
+├── requirements.txt        # Python dependencies
+├── .env.example            # Environment variable template
+├── .gitignore              # Git ignore rules
+├── README.md               # Project overview
+├── chroma_db/              # ChromaDB storage (auto-created)
+├── audio_responses/        # Generated audio files (auto-created)
+└── conversation_logs/      # Conversation history (auto-created)
 ```
+
+## 🌐 Web Interface (Primary Method)
+
+### Starting the Web Server
+
+```bash
+python web_app.py
+```
+
+The server will start on **http://localhost:5001**
+
+### Web UI Features
+
+- 💬 **Real-time Chat**: Modern dark-themed interface
+- 🔊 **Audio Toggle**: Enable/disable text-to-speech responses
+- 📊 **Statistics**: Track queries, responses, and average time
+- 🗑️ **Clear Chat**: Reset conversation anytime
+- 📱 **Mobile Responsive**: Works on all devices
+- 🎨 **Modern Design**: Professional dark gradient theme
+
+### REST API Endpoints
+
+The web server provides these endpoints:
+
+#### POST `/api/chat`
+Send a message and get AI response with optional audio
+
+**Request**:
+```json
+{
+  "message": "What are your business hours?",
+  "enableAudio": true
+}
+```
+
+**Response**:
+```json
+{
+  "response": "Our business hours are...",
+  "audio_url": "/audio/response_12345.wav",
+  "timestamp": "2025-01-15T10:30:00"
+}
+```
+
+#### GET `/api/stats`
+Get session statistics
+
+**Response**:
+```json
+{
+  "total_queries": 15,
+  "total_responses": 15,
+  "average_response_time": 1.23,
+  "session_start": "2025-01-15T10:00:00"
+}
+```
+
+#### POST `/api/clear`
+Clear conversation history
+
+**Response**:
+```json
+{
+  "message": "Conversation cleared"
+}
+```
+
+#### GET `/api/history`
+Get conversation history
+
+**Response**:
+```json
+{
+  "history": [
+    {"role": "user", "content": "Hello"},
+    {"role": "assistant", "content": "Hi there!"}
+  ]
+}
+```
+
+#### GET `/audio/<filename>`
+Retrieve audio file
+
+Returns: WAV audio file
+
+### Browser Compatibility
+
+- ✅ Chrome/Edge 90+
+- ✅ Firefox 88+
+- ✅ Safari 14+
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
 
 ## 🔧 Component Details
 

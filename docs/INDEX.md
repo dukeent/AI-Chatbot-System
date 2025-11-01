@@ -1,53 +1,87 @@
-# 📑 CHATBOT SYSTEM - COMPLETE FILE INDEX
+# 📑 AI CHATBOT SYSTEM - COMPLETE FILE INDEX
 
 ## 🎯 **PROJECT COMPLETE!**
 
-**Status**: ✅ All components built and tested  
-**Date**: November 1, 2025  
-**Workshop**: Chatbot with ChromaDB, OpenAI, and HuggingFace TTS
+**Status**: ✅ All components built and tested with web interface  
+**Date**: November 2025  
+**System**: AI Chatbot with Web UI, ChromaDB, OpenAI, and HuggingFace TTS
 
 ---
 
 ## 📂 Complete File Listing
 
-### 🚀 **Main Application Files** (5 files)
+### 🌐 **Web Application Files** (4 files)
 
-1. **`chatbot.py`** (Main Application)
-   - Interactive CLI interface
-   - Full pipeline integration
-   - Command system (quit, history, stats, save, clear, help)
+1. **`web_app.py`** (Flask Web Server)
+   - REST API endpoints
+   - Session management
+   - Audio file serving
+   - Statistics tracking
+   - ~200 lines
+
+2. **`templates/index.html`** (Web UI)
+   - Modern chat interface
+   - Real-time messaging
+   - Audio player integration
+   - Statistics dashboard
+   - ~150 lines
+
+3. **`static/style.css`** (Styling)
+   - Modern dark theme
+   - Responsive design
+   - Animations and transitions
+   - Mobile support
+   - ~550 lines
+
+4. **`static/script.js`** (Frontend Logic)
+   - API integration
+   - Message handling
+   - Audio playback
+   - Auto-resize textarea
+   - ~250 lines
+
+### 🚀 **Main Application Files** (6 files)
+
+1. **`run_chatbot.py`** (CLI Entry Point)
+   - Command-line interface launcher
+   - Argument parsing
+   - ~50 lines
+
+2. **`src/chatbot.py`** (Core Logic)
+   - Component orchestration
+   - Query processing pipeline
    - Session management
    - ~280 lines
 
-2. **`knowledge_base.py`** (ChromaDB Integration)
+3. **`src/knowledge_base.py`** (ChromaDB Integration)
    - Vector database management
    - Semantic search with embeddings
    - FAQ loading and management
    - Statistics and analytics
    - ~290 lines
 
-3. **`response_generator.py`** (OpenAI Integration)
+4. **`src/response_generator.py`** (OpenAI Integration)
    - GPT-powered response generation
    - Conversation history management
    - Multi-turn dialogue support
    - Token usage tracking
    - ~250 lines
 
-4. **`tts_service.py`** (Text-to-Speech)
+5. **`src/tts_service.py`** (Text-to-Speech)
    - HuggingFace VITS model
    - Audio generation (WAV files)
    - Batch processing
    - Playback support
    - ~250 lines
 
-5. **`config.py`** (Configuration)
+6. **`src/config.py`** (Configuration)
    - Centralized settings
    - Environment variable loading
    - Path management
    - Validation
-   - ~45 lines
+   - ~60 lines
 
-**Total Core Code**: ~1,115 lines
+**Total Core Code**: ~1,900 lines
 
 ---
 
